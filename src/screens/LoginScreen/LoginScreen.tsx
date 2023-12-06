@@ -7,11 +7,20 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
+  Image,
+  Dimensions,
 } from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {
+  responsiveHeight as rh,
+  responsiveWidth as rw,
+  responsiveFontSize as rf,
+} from 'react-native-responsive-dimensions';
 
 const LoginScreen = () => {
+  let height = Dimensions.get('window').height;
+
   const navigation = useNavigation();
   return (
     <KeyboardAvoidingView
@@ -27,9 +36,16 @@ const LoginScreen = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Text style={{color: 'black', fontSize: 50, marginTop: 150}}>
-          {'</>'}
-        </Text>
+        <Image
+          source={require('../../images/enlogo.jpg')}
+          style={{
+            height: 80,
+            width: 80,
+            resizeMode: 'contain',
+            marginTop: 100,
+          }}
+        />
+
         <TextInput
           style={[styles.txtinput, {marginTop: 50}]}
           placeholder="Email"

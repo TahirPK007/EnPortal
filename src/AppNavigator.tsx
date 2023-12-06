@@ -12,6 +12,8 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/AntDesign';
+import TaskDetails from './screens/TaskDetails';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -19,15 +21,74 @@ const Tab = createBottomTabNavigator();
 const HomeTabs = () => {
   const insets = useSafeAreaInsets();
   return (
-    // <View style={{flex: 1, marginBottom: 5}}>
-    <SafeAreaProvider style={{paddingBottom: insets.bottom}}>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Tasks" component={Tasks} />
-        <Tab.Screen name="Settings" component={Settings} />
-      </Tab.Navigator>
-    </SafeAreaProvider>
-    // </View>
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: true,
+          tabBarActiveTintColor: 'white',
+          tabBarStyle: {
+            backgroundColor: 'black',
+            height: 80,
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
+          },
+          tabBarLabelStyle: {
+            position: 'relative',
+            top: -15,
+          },
+          tabBarIcon: ({color, size}) => (
+            <Icon name="home" size={30} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Tasks"
+        component={Tasks}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: true,
+          tabBarActiveTintColor: 'white',
+          tabBarStyle: {
+            backgroundColor: 'black',
+            height: 80,
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
+          },
+          tabBarLabelStyle: {
+            position: 'relative',
+            top: -15,
+          },
+          tabBarIcon: ({color, size}) => (
+            <Icon name="profile" size={30} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: true,
+          tabBarActiveTintColor: 'white',
+          tabBarStyle: {
+            backgroundColor: 'black',
+            height: 80,
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
+          },
+          tabBarLabelStyle: {
+            position: 'relative',
+            top: -15,
+          },
+          tabBarIcon: ({color, size}) => (
+            <Icon name="setting" size={30} color={color} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 
@@ -48,6 +109,16 @@ const AppNavigator = () => {
         <Stack.Screen
           name="SettingScreen"
           component={SettingScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Tasks"
+          component={Tasks}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="TaskDetails"
+          component={TaskDetails}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

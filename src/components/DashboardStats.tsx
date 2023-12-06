@@ -4,7 +4,7 @@ import CircularProgress from 'react-native-circular-progress-indicator';
 
 const DashboardStats = () => {
   return (
-    <View style={{flex: 1}}>
+    <View>
       <View
         style={{
           width: '100%',
